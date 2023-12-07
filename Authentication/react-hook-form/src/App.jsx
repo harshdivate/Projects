@@ -10,12 +10,13 @@ function App() {
       console.log(data)
   }
   return (
-    <div className='w-full h-full bg-gray-600 flex items-center justify-center border border-black'>      
-      <form onSubmit={handleSubmit(onSubmit)} className=''>
+    <div  id="main" className='w-full h-screen bg-white-600 flex items-center justify-center border border-black'>      
+      <form onSubmit={handleSubmit(onSubmit)} className='border border-black justify-around bg-[#007200]' id="container">
           <div>
-          <label>Name</label>
+          <label className='block w-full text-start text-2xl m-2 text-white font-bold'>Name</label>
           <input
           type="text"
+          className=' px-2 py-2 mx-2 my-1 w-full rounded-lg outline-none'
           placeholder='Enter Username'
           {...register("firstname",{required:true})}
           >
@@ -23,19 +24,24 @@ function App() {
           <p>{errors.firstname?.message}</p>
           </div>
           <div>
-          <label>Name</label>
+          <label className='block text-2xl m-2 text-white font-bold'>Password</label>
           <input
+          className=' px-2 py-2 mx-2 my-1 w-full rounded-lg outline-none'
           placeholder='Enter Password'
-          {...register("password",{required:'Please Enter a Password',pattern : {
+          {...register("password",{required:true,pattern : {
             value:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/m,
             message : 'Password should contain uppercase, lowercase and min length 8 with special characters'
           }
         })}
           >
           </input>
-          <p>{errors.password?.message}</p>
+          <p className='text-white'>{errors.password?.message}</p>
           </div>
-          <button type='submit'>Submit</button>
+          <div className='flex items-center justify-center m-2'>
+          <button type='submit'
+          className='bg-[#da1e37] w-1/3 rounded-full py-2  text-white border-none font-bold '
+          >Submit</button>
+          </div>
       </form>
       </div>
   )

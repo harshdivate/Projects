@@ -1,0 +1,17 @@
+form {
+    height: 20em;
+    width :30em;
+    display: flex;
+    flex-direction: column;
+    padding : 25px;
+}
+
+#container {
+    opacity: 0.8;
+}
+
+#main {
+    background-image: url('https://images.pexels.com/photos/754261/pexels-photo-754261.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-repeat: no-repeat;
+    background-size: 100%   100%;
+}
