@@ -1,13 +1,32 @@
 import { useState } from 'react'
 import {useForm} from "react-hook-form";
-
+import { useNavigate } from 'react-router-dom';
+import config from './config/config';
+import {Client,Account} from "appwrite";
 import './App.css'
 
 function App() {
+  // const navigate = useNavigate();
+  const client = new Client().setEndpoint(config.appWriteURL).setProject(config.appWriteProjectID)
+  const account = new Account(client);
   
+  const handleLogin = async (email,password) => {
+    try{
+      const loginObject =   await  account.createEmailSession(email,password)
+      if(loginObject){
+        // navigate('https://youtube.com')
+        console.log('Successfully Loged In')
+      }
+    }catch(error){
+      console.log(error)
+    }
+  }
+
   const {register,handleSubmit,formState :{errors}} = useForm();
   const onSubmit = (data) => {
-      console.log(data)
+    const email = data.firstname;
+    const password = data.password
+    handleLogin(email,password)
   }
   return (
     <div  id="main" className='w-full h-screen bg-white-600 flex items-center justify-center border border-black'>      
