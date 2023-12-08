@@ -6,7 +6,7 @@ import {Client,Account} from "appwrite";
 import './App.css'
 
 function App() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const client = new Client().setEndpoint(config.appWriteURL).setProject(config.appWriteProjectID)
   const account = new Account(client);
   
@@ -14,7 +14,7 @@ function App() {
     try{
       const loginObject =   await  account.createEmailSession(email,password)
       if(loginObject){
-        // navigate('https://youtube.com')
+        navigate('/login')
         console.log('Successfully Loged In')
       }
     }catch(error){
