@@ -1,10 +1,31 @@
 import React from 'react'
+import config from '../../config/config';
+import {Client,Account , ID} from "appwrite";
 import { NavLink } from 'react-router-dom'
 import './Register.css';
 import {useForm} from "react-hook-form";
 
 function RegisterForm() {
     const {register,handleSubmit,formState :{errors}} = useForm();
+
+    const onSubmit = (data) =>{
+        console.log(data)
+        useRegister(data)
+    }
+
+function configureAppWrite() {
+        const client = new Client()
+          .setEndpoint(config.appWriteURL)
+          .setProject(config.appWriteProjectID);
+        return new Account(client);
+      }
+      
+const useRegister = async({username,email,password}) => {
+    const account = configureAppWrite();
+    const response = await account.create(ID.unique(),email,password,username);
+    console.log(response)
+
+}
   return (
     <div className='w-full h-screen flex justify-center items-center bg-[#0e1620] text-white'>
         {/* Form Part */}
@@ -21,36 +42,55 @@ function RegisterForm() {
                 </div>
                 {/* Form */}
                 <div>
-                    <form>
+                    <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    >
                         <div >
                             
                             <label className='m-2'>Username</label>
                             <input 
                             type='text' 
-                            {...register("username",{required:"This is required"})}
+                            {...register("username",{required:true,
+                                minLength:{value:3,message:"Username should be atleast 3 characters"},
+                                maxLength: {value:16,message: "Username must be 3 to 16 characters"}
+                            })}
                             placeholder='Enter Username' 
                             className='p-5 '/>
+                            {errors.username?.message && (<small>{errors.username.message}</small>)}
+
                         </div>
                         <div>
                             <label className='m-2'>Email</label>
                             <input 
-                            {...register("email")}
-                            type='email' 
+                            {...register("email",{required:true,maxLength:v=>v.length<30,pattern:{
+                                value :  /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+                                message :"Email address must be a vaild address."
+                            }
+                            })}
+                            type='text' 
                             placeholder='Enter Email' 
                             className='p-5'/>
+                            {errors.email?.message && (<small>{errors.email.message}</small>)}
                         </div>
                         <div >
                             <label 
                             className='m-2'>
                                 Password</label>
                             <input 
+                            {...register("password",{required:true,pattern : {
+                                value:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/m,
+                                message : 'Password should contain uppercase, lowercase and min length 8 with special characters'
+                              }
+                            })}
                             type='text' 
                             placeholder='Enter Password' 
                             className='p-5'/>
+                            {errors.password?.message && (<small>{errors.password.message}</small>)}
                         </div>
                         <div >
                             <button 
                             id="register" 
+                            type="submit"
                             className='font-bold text-xl'>
                                 Register</button>
                         </div>
