@@ -10,24 +10,22 @@ function configureAppWrite() {
   return new Account(client);
 }
 
-const usehandleLogin = (email, password) => {
-  console.log(`Email ins useHandleLogin is ${email}`);
-  const [loginObject, setloginObject] = useState({});
+const usehandleLogin = () => {
   const account = configureAppWrite();
 
-  const handleLogin = async () => {
+  const handleLogin = async (email, password) => {
     try {
-      setloginObject(await account.createEmailSession(email, password));
+      const loginObject = await account.createEmailSession(email, password);
       if (loginObject) {
         console.log(loginObject);
-
+        return loginObject;
         console.log("Successfully Loged In");
       }
     } catch (error) {
       console.log(error);
     }
   };
-  return { handleLogin, loginObject };
+  return { handleLogin };
 };
 
 export default usehandleLogin;

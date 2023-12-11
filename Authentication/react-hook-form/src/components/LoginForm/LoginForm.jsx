@@ -8,10 +8,7 @@ function LoginForm() {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
     const {register,handleSubmit,formState :{errors}} = useForm();
-    const {handleLogin, loginObject} = usehandleLogin(email,password);
-    
-
-   
+    const {handleLogin} = usehandleLogin();
     
     
     const onSubmit =async (data) => {
@@ -20,7 +17,7 @@ function LoginForm() {
       setEmail(email)
       setPassword(password)
       try {
-        await handleLogin();
+        const loginObject =await handleLogin(email,password);
         if (loginObject) {
           console.log(loginObject);
           console.log("Successfully Logged In");
