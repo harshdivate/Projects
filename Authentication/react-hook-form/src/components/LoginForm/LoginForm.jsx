@@ -30,7 +30,7 @@ function LoginForm() {
     }  
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className='border border-black justify-around bg-[#007200]' id="container">
+    <form onSubmit={handleSubmit(onSubmit)} className='border border-black justify-around bg-[#007200] sticky' id="container">
           <div>
           <label className='block w-full text-start text-2xl m-2 text-white font-bold'>Name</label>
           <input
