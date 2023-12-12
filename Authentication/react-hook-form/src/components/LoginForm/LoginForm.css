@@ -1,25 +1,29 @@
+*{
+    margin: 0;
+}
+
+img{
+    margin:10px;
+}
 
 form div{
     display: flex;
     flex-direction: column;
-    margin: 1.5rem;
-}
-label{
-    font-size: small;
-    color : #a0a0a1
+    padding: 10px;
+    
 }
 
-input{
-    outline:none;
-    border: solid;
-    padding:10px;
-    border-color: #a0a0a1;
-    border-radius: 6px;
-    height: 35px;
+form div input {
+    
+    outline: solid;
+    outline-color:#a0a0a1;
+    border-radius: 5px;
     background-color: transparent;
+    padding: 6px 2px;
+    margin: 2px;
 }
 
-#register {
+#register{
     background-image: linear-gradient(to right,#047dd8 0%,#02A09D 51%,#01BE69 100%);
     padding:8px;
     border-radius: 10px;
