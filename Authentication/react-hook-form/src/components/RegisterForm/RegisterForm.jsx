@@ -22,18 +22,6 @@ function RegisterForm() {
        
     }
 
-// function configureAppWrite() {
-//         const client = new Client()
-//           .setEndpoint(config.appWriteURL)
-//           .setProject(config.appWriteProjectID);
-//         return new Account(client);
-// }
-      
-// const useRegister = async({username,email,password}) => {
-//     const account = configureAppWrite();
-//     const response = await account.create(ID.unique(),email,password,username);
-//     console.log(response)
-// }
   return (
     <div className='w-full h-screen flex justify-center items-center bg-[#0e1620] text-white'>
         {/* Form Part */}

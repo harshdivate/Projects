@@ -1,13 +1,5 @@
-import React from "react";
-import config from "../config/config";
-import { Client, Account, ID } from "appwrite";
-
-function configureAppWrite() {
-  const client = new Client()
-    .setEndpoint(config.appWriteURL)
-    .setProject(config.appWriteProjectID);
-  return new Account(client);
-}
+import { ID } from "appwrite";
+import configureAppWrite from "../appwrite/configureAppwrite";
 
 const useHandleRegistration = () => {
   const registerUser = async (username, email, password) => {

@@ -1,14 +1,4 @@
-import { useNavigate } from "react-router-dom";
-import config from "../config/config";
-import { Client, Account } from "appwrite";
-import { useState } from "react";
-
-function configureAppWrite() {
-  const client = new Client()
-    .setEndpoint(config.appWriteURL)
-    .setProject(config.appWriteProjectID);
-  return new Account(client);
-}
+import configureAppWrite from "../appwrite/configureAppwrite";
 
 const usehandleLogin = () => {
   const account = configureAppWrite();

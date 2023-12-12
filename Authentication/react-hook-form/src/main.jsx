@@ -1,8 +1,6 @@
 import React from 'react'
 import Layout from './components/Layout/Layout.jsx'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import Login from './Login.jsx'
 import Home from './components/Home/Home.jsx'
 import './index.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
