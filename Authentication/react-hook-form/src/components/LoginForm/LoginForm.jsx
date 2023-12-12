@@ -18,7 +18,8 @@ function LoginForm() {
         if (loginObject) {
           console.log(loginObject);
           console.log("Successfully Logged In");
-          navigate("/login");
+          localStorage.setItem("isLoggedIn",true);
+          navigate("/");
         }
       } catch (error) {
         console.log(error);
@@ -29,7 +30,7 @@ function LoginForm() {
   return (
     <div className='w-full h-screen flex justify-center items-center bg-[#0e1620] text-white '>
       {/* Center Form Div */}
-      <div className='border border-white h-3/5 w-3/12 p-4 rounded-lg '>
+      <div className='border border-white h-fit w-3/12 p-4 rounded-lg '>
         {/* Logo */}
         <div className='flex justify-center'>
               <img src="login1.svg" ></img>

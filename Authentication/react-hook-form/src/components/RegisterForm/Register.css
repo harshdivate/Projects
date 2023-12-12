@@ -2,7 +2,7 @@
 form div{
     display: flex;
     flex-direction: column;
-    margin: 1.5rem;
+    margin: 0.5rem;
 }
 label{
     font-size: small;
@@ -11,7 +11,6 @@ label{
 
 input{
     outline:none;
-    border: solid;
     padding:10px;
     border-color: #a0a0a1;
     border-radius: 6px;

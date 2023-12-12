@@ -1,8 +1,11 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useEffect ,useState} from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 import './Navigation.css'
 
 function Navigation() {
+  
+ 
+ 
   return (
     <div className='h-fit flex flex-row bg-[#1E2837] '>
         <nav className='flex m-3  w-full items-center justify-between  text-xl text-white'>
@@ -15,8 +18,11 @@ function Navigation() {
             <div className='w-1/2  flex justify-around '>
                 <NavLink>Home</NavLink>
                 <NavLink>Products</NavLink>
-                <NavLink>SignUp</NavLink>
-                <NavLink>Login</NavLink>
+                <NavLink
+                to = "/register"
+                >SignUp</NavLink>
+                <NavLink
+                >Login</NavLink>
             </div>
         </nav>
     </div>

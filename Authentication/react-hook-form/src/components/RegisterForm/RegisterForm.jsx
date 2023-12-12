@@ -4,28 +4,36 @@ import {Client,Account , ID} from "appwrite";
 import { NavLink } from 'react-router-dom'
 import './Register.css';
 import {useForm} from "react-hook-form";
+import useHandleRegistration from '../../hooks/useHandleRegistration';
 
 function RegisterForm() {
     const {register,handleSubmit,formState :{errors}} = useForm();
+    const registerUser = useHandleRegistration();
 
-    const onSubmit = (data) =>{
+    const onSubmit = async (data) =>{
         console.log(data)
-        useRegister(data)
+        const {username,email,password}= data
+        try{
+            const response = await registerUser(username,email,password);
+            console.log(response)
+        }catch(err){
+            console.log(err)
+        }
+       
     }
 
-function configureAppWrite() {
-        const client = new Client()
-          .setEndpoint(config.appWriteURL)
-          .setProject(config.appWriteProjectID);
-        return new Account(client);
-      }
+// function configureAppWrite() {
+//         const client = new Client()
+//           .setEndpoint(config.appWriteURL)
+//           .setProject(config.appWriteProjectID);
+//         return new Account(client);
+// }
       
-const useRegister = async({username,email,password}) => {
-    const account = configureAppWrite();
-    const response = await account.create(ID.unique(),email,password,username);
-    console.log(response)
-
-}
+// const useRegister = async({username,email,password}) => {
+//     const account = configureAppWrite();
+//     const response = await account.create(ID.unique(),email,password,username);
+//     console.log(response)
+// }
   return (
     <div className='w-full h-screen flex justify-center items-center bg-[#0e1620] text-white'>
         {/* Form Part */}
@@ -97,7 +105,7 @@ const useRegister = async({username,email,password}) => {
                     </form>
                     {/* Already have an account */}
                     <div className='flex  justify-center items-center m-2'>
-                        Already have an account?<NavLink>Sign in</NavLink>
+                        Already have an account?<NavLink to="/login">Sign in</NavLink>
                     </div>
 
                 </div>
