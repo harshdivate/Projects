@@ -3,13 +3,19 @@ import './LoginForm.css';
 import {useForm} from "react-hook-form";
 import { NavLink, useNavigate } from 'react-router-dom';
 import usehandleLogin from '../../hooks/useHandleLogin';
+import configureAppWrite from '../../appwrite/configureAppwrite';
 
 function LoginForm() {
     const navigate = useNavigate();
     const {register,handleSubmit,formState :{errors}} = useForm();
     const {handleLogin} = usehandleLogin();
     
-    
+    const handleSignInWithGoogle = () => {
+      const account = configureAppWrite();
+      localStorage.setItem('isLoggedIn',true)
+      console.log(account.createOAuth2Session('google','http://localhost:5173/','http://localhost:5173/login'))
+    }
+
     const onSubmit =async (data) => {
       const email = data.firstname;
       const password = data.password
@@ -78,6 +84,11 @@ function LoginForm() {
           {/* Dont Have an account ? */}
           <div className='flex items-center justify-center '>
             <p className=''>Dont have an account ? <NavLink>Sign Up</NavLink></p>
+          </div>
+          <div>
+            <button
+            onClick={handleSignInWithGoogle}
+            >Sing In With Google</button>
           </div>
         </div>
 
