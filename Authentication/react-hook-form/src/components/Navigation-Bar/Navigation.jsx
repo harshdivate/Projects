@@ -7,11 +7,13 @@ import userContext from '../../context/userContext'
 function Navigation() {
   const navigate = useNavigate();
   const {isUserLoggedIn,removeUser,isLoggedIn} = useContext(userContext); 
-  
+  console.log('User is Logged in ?'+isUserLoggedIn())
   const handleLogout = () => {
     if(isLoggedIn){
       console.log('Now i should delete the localStorage '+isLoggedIn)
       removeUser();
+      navigate('/')
+    }else{
       navigate('/')
     }
   }

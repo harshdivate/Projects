@@ -17,7 +17,7 @@ function LoginForm() {
     // })
     const handleSignInWithGoogle = () => {
       const account = configureAppWrite();
-      localStorage.setItem('isLoggedIn',true)
+      addUser();
       console.log(account.createOAuth2Session('google','http://localhost:5173/','http://localhost:5173/login'))
     }
 
@@ -83,7 +83,7 @@ function LoginForm() {
                   <NavLink>Forgot Password?</NavLink>
             </div>
             {/* Button */}
-            <div>
+            <div className='font-bold text-lg'>
                 <button id="register" type="submit">Sign In</button>
             </div>
           </form>
@@ -91,10 +91,12 @@ function LoginForm() {
           <div className='flex items-center justify-center '>
             <p className=''>Dont have an account ? <NavLink>Sign Up</NavLink></p>
           </div>
-          <div>
+          <div className='flex justify-center m-4'>
             <button
-            onClick={handleSignInWithGoogle}
-            >Sing In With Google</button>
+            className='bg-white text-black py-1 px-4 rounded-full flex items-center justify-center google'
+            onClick={handleSignInWithGoogle}>
+             <img src='google-logo.png' className='h-6 w-6'/>  
+            Sign in with Google</button>
           </div>
         </div>
 
