@@ -7,6 +7,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import LoginForm from './components/LoginForm/LoginForm.jsx'
 import Protected from './components/ProtectedRoutes/Protected.jsx'
 import RegisterForm from './components/RegisterForm/RegisterForm.jsx'
+import UserContextProvider from './context/UserContextProvider.jsx'
+
 
 
 
@@ -18,7 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="" element={<Protected Component={Home} />}></Route>
       <Route path="/login" element={<LoginForm/>}></Route>
       <Route path="/register" element={<RegisterForm/>}></Route>
-      </Route>
+      </Route>  
    </Routes>
    </BrowserRouter>
   </React.StrictMode>,

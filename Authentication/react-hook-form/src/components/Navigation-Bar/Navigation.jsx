@@ -3,10 +3,18 @@ import { NavLink ,useNavigate } from 'react-router-dom'
 import './Navigation.css'
 import userContext from '../../context/userContext'
 
+
 function Navigation() {
   const navigate = useNavigate();
-  const {isUserLoggedIn,removeUser,addUser} = useContext(userContext); 
+  const {isUserLoggedIn,removeUser,isLoggedIn} = useContext(userContext); 
   
+  const handleLogout = () => {
+    if(isLoggedIn){
+      console.log('Now i should delete the localStorage '+isLoggedIn)
+      removeUser();
+      navigate('/')
+    }
+  }
 
   return (
     <div className='h-fit flex flex-row bg-[#1E2837] '>
@@ -25,7 +33,9 @@ function Navigation() {
                 >SignUp</NavLink>
                 <NavLink
                 
-                >{isUserLoggedIn() ? "Logout" : "Logout"}</NavLink>
+                ><button
+                onClick={handleLogout}
+                >{isLoggedIn===true ? "Logout" : "Log In"}</button></NavLink>
             </div>
         </nav>
     </div>

@@ -5,7 +5,6 @@ import userContext from '../../context/userContext';
 function Protected(props) {
     const {isUserLoggedIn} = useContext(userContext)
     const {Component} = props
-    console.log(Component);
     const navigate = useNavigate();
     useEffect(()=>{
         const isLoggedIn = localStorage.getItem('isLoggedIn')
@@ -14,7 +13,7 @@ function Protected(props) {
         if(!isLoggedIn){
             navigate('/login')
         }
-    },[])
+    },[localStorage.getItem('isLoggedIn')])
   return (
 
     <Component/>

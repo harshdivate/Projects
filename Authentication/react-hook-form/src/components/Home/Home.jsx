@@ -19,7 +19,7 @@ function Home() {
       }
     }
     useEffect(()=>{
-        const isLoggedIn = localStorage.getItem('isLoggedIn')
+        const isLoggedIn = isUserLoggedIn();
         if(isLoggedIn){
             navigate("/")
         }
