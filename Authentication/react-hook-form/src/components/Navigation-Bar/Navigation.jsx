@@ -1,11 +1,13 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React,{useContext} from 'react'
+import { NavLink ,useNavigate } from 'react-router-dom'
 import './Navigation.css'
+import userContext from '../../context/userContext'
 
 function Navigation() {
+  const navigate = useNavigate();
+  const {isUserLoggedIn,removeUser,addUser} = useContext(userContext); 
   
- 
- 
+
   return (
     <div className='h-fit flex flex-row bg-[#1E2837] '>
         <nav className='flex m-3  w-full items-center justify-between  text-xl text-white'>
@@ -22,7 +24,8 @@ function Navigation() {
                 to = "/register"
                 >SignUp</NavLink>
                 <NavLink
-                >Login</NavLink>
+                
+                >{isUserLoggedIn() ? "Logout" : "Logout"}</NavLink>
             </div>
         </nav>
     </div>
