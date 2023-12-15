@@ -12,8 +12,11 @@ function Home() {
             dots: true,
             infinite: true,
             speed: 500,
-            slidesToShow: 4,
+            slidesToShow: 5,
             slidesToScroll: 4,
+            // autoplay: true,
+            // autoplaySpeed: 2000,
+            // cssEase: "linear",
             responsive: [
               {
                 breakpoint: 1024,
@@ -71,12 +74,14 @@ function Home() {
                 Set time out 
           </div>
           {/* Now Playing */}
-          <div className='m-10 border border-white'>
+          <div className='m-10'>
+            <div className='text-2xl'>Trending  &gt;</div>
+            <div>
             {/* Slider Tag Below */}
             <Slider {...settings}>
-            <div className='bg-white '>
-              <div className='border border-grey-200  '>
-                      <img src='https://image.tmdb.org/t/p/w300/9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg' /> 
+            <div className=' '>
+              <div className='  flex justify-center items-center '>
+                    <img src='https://image.tmdb.org/t/p/w300/9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg' /> 
                   </div>
                   <div className='flex flex-col m-2 '>
                     <div className=''>If I cant</div>
@@ -86,7 +91,7 @@ function Home() {
             </div>
 
             <div>
-              <div className='border border-grey-200'>
+              <div className='  flex justify-center items-center'>
                   <img src='https://image.tmdb.org/t/p/w300/9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg' /> 
               </div>flex justify-center items-center
               <div className='flex flex-col m-2'>
@@ -97,7 +102,7 @@ function Home() {
             </div>
 
             <div>
-              <div className='border border-grey-200'>
+              <div className='  flex justify-center items-center'>
                   <img src='https://image.tmdb.org/t/p/w300/9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg' /> 
               </div>
               <div className='flex flex-col m-2'>
@@ -108,7 +113,7 @@ function Home() {
             </div>
 
             <div>
-              <div className='border border-grey-200'>
+              <div className='  flex justify-center items-center'>
                   <img src='https://image.tmdb.org/t/p/w300/9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg' /> 
               </div>
               <div className='flex flex-col m-2'>
@@ -119,7 +124,7 @@ function Home() {
             </div>
 
             <div>
-              <div className='border border-grey-200'>
+              <div className=' flex justify-center items-center'>
                   <img src='https://image.tmdb.org/t/p/w300/9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg' /> 
               </div>
               <div className='flex flex-col m-2'>
@@ -130,7 +135,7 @@ function Home() {
             </div>
 
             <div>
-              <div className='border border-grey-200'>
+              <div className='  flex justify-center items-center'>
                   <img src='https://image.tmdb.org/t/p/w300/9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg' /> 
               </div>
               <div className='flex flex-col m-2'>
@@ -141,7 +146,7 @@ function Home() {
             </div>
 
             <div>
-              <div className='border border-grey-200'>
+              <div className='  flex justify-center items-center'>
                   <img src='https://image.tmdb.org/t/p/w300/9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg' /> 
               </div>
               <div className='flex flex-col m-2'>
@@ -152,7 +157,7 @@ function Home() {
             </div>
 
             <div>
-              <div className='border border-grey-200'>
+              <div className='  flex justify-center items-center'>
                   <img src='https://image.tmdb.org/t/p/w300/9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg' /> 
               </div>
               <div className='flex flex-col m-2'>
@@ -162,18 +167,20 @@ function Home() {
               </div>
             </div>
 
-            <div>
-              <div className='border border-grey-200'>
-                  <img src='https://image.tmdb.org/t/p/w300/9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg' /> 
+            <div className='border border-white'>
+              <div className='  flex justify-center items-center'>
+                  <img src='https://image.tmdb.org/t/p/w300/9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg' className='rounded-lg' /> 
               </div>
-              <div className='flex flex-col m-2'>
+              <div className='flex flex-col justify-start items-start m-2'>
                 <div className=''>If I cant</div>
                 <div className=''>2023</div>
                 <small className='text-xs'>Thriller Crime Drama</small>
               </div>
             </div>
           
-            </Slider>
+              </Slider>
+          </div>
+
           </div>
     </div>
   )
@@ -183,7 +190,7 @@ export default Home
 
 
 {/* <div className=' border border-amber '>
-                  <div className='border border-grey-200'>
+                  <div className=''>
                       <img src='https://image.tmdb.org/t/p/w200/9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg' /> 
                   </div>
                   <div className='flex flex-col m-2'>
