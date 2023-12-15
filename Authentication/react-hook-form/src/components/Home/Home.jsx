@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect,useState } from 'react'
 import Slider from "react-slick";
 import './Home.css';
 import { useNavigate } from 'react-router-dom';
@@ -6,8 +6,12 @@ import configureAppWrite from '../../appwrite/configureAppwrite';
 import userContext from '../../context/userContext';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import getTrending from '../../utils/movie-db/getTrending';
+
 
 function Home() { 
+  
+  const [data,setData]= useState([]);
   const settings = {
             dots: true,
             infinite: true,
@@ -59,13 +63,19 @@ function Home() {
           console.log(error);
       }
     }
-    useEffect(()=>{
+    useEffect(async()=>{
         const isLoggedIn = isUserLoggedIn();
         if(isLoggedIn){
             navigate("/")
         }
         getUserDetails();
+        const {getTrendingData} = getTrending();
+       
+        
     },[])
+    const trending =  getTrending();
+    setData(getTrendingData());
+    console.log(data)
   return (
 
     <div id="container" className='h-screen bg-white-500 '>
@@ -189,49 +199,3 @@ function Home() {
 export default Home
 
 
-{/* <div className=' border border-amber '>
-                  <div className=''>
-                      <img src='https://image.tmdb.org/t/p/w200/9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg' /> 
-                  </div>
-                  <div className='flex flex-col m-2'>
-                    <div className=''>If I cant</div>
-                    <div className=''>2023</div>
-                    <small className='text-xs'>Thriller Crime Drama</small>
-                  </div>
-
-                  
-    </div>
-
-              <div className=' border border-amber '>
-                    <div className='border border-purple-200'>
-                        <img src='https://image.tmdb.org/t/p/w200/9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg' /> 
-                    </div>
-                    <div className='flex flex-col m-2'>
-                      <div className=''>If I cant</div>
-                      <div className=''>2023</div>
-                      <small className='text-xs'>Thriller Crime Drama</small>
-                    </div>
-              </div>
-
-              <div className=' border border-amber '>
-                  <div className='border border-purple-200'>
-                      <img src='https://image.tmdb.org/t/p/w200/9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg' /> 
-                  </div>
-                  <div className='flex flex-col m-2'>
-                    <div className=''>If I cant</div>
-                    <div className=''>2023</div>
-                    <small className='text-xs'>Thriller Crime Drama</small>
-                  </div>
-              </div>
-
-
-              <div className=' border border-amber '>
-                  <div className='border border-purple-200'>
-                      <img src='https://image.tmdb.org/t/p/w200/9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg' /> 
-                  </div>
-                  <div className='flex flex-col m-2'>
-                    <div className=''>If I cant</div>
-                    <div className=''>2023</div>
-                    <small className='text-xs'>Thriller Crime Drama</small>
-                  </div>
-              </div> */}
