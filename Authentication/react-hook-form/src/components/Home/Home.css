@@ -1,7 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Text&family=Hedvig+Letters+Sans&family=Mulish&family=Outfit:wght@300&display=swap');
+
 #container{
     background-color: #010100;
     font-family: 'Bebas Neue', sans-serif;
     color: white;
 
 }
+
+.slick-slide > div {
+    /* display: flex; */
+    margin: 20px;
+    
+}
+
+/* .slick-slide  div{
+    width:fit-content;
+    justify-items: center;
+    align-items: center;
+    width:fit-content
+} */

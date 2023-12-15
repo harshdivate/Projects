@@ -45,7 +45,7 @@ function LoginForm() {
       <div className='border border-white h-fit w-3/12 p-4 rounded-lg '>
         {/* Logo */}
         <div className='flex justify-center'>
-              <img src="login1.svg" ></img>
+              <img className='img' src="login1.svg" ></img>
         </div>
         {/* Welcome Text */}
         <div className='flex flex-col  items-center justify-center '>

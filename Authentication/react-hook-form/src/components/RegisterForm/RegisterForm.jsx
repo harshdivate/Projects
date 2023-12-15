@@ -29,7 +29,7 @@ function RegisterForm() {
             <div className='border border-[#798797] rounded-lg w-1/4 h-fit'>
                 {/* Logo Image */}
                 <div className='flex  justify-center m-2'>
-                    <img src="register.svg" />
+                    <img className='img' src="register.svg" />
                 </div>
                 {/* Create Account Text */}
                 <div className='flex justify-center flex-col items-center m-2'>
