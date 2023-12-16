@@ -1,7 +1,5 @@
 import React from "react";
 function getTrending() {
-  const [data, setData] = React.useState([]);
-
   const getTrendingData = async () => {
     const options = {
       method: "GET",
@@ -12,15 +10,13 @@ function getTrending() {
       },
     };
 
-    await fetch(
+    const data = await fetch(
       "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
       options
-    )
-      .then((response) => response.json())
-      .then((response) => setData(response))
-      .catch((err) => console.error(err));
+    ).then((response) => response.json());
+    return data.results;
   };
-  return { getTrendingData, data };
+  return { getTrendingData };
 }
 
 export default getTrending;
