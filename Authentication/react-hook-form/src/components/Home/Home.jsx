@@ -5,6 +5,10 @@ import configureAppWrite from '../../appwrite/configureAppwrite';
 import userContext from '../../context/userContext';
 
 import TrendingMovies from '../TredingMovies/TrendingMovies';
+import ComedyMovies from '../ComedyMovies/ComedyMovies';
+import TopRated from '../TopRated/TopRated';
+import Upcoming from '../UpcomingMovies/Upcoming';
+import ActionMovies from '../ActionMovies/ActionMovies';
 
 
 function Home() { 
@@ -38,14 +42,24 @@ function Home() {
     
   return (
 
-    <div id="container" className='h-screen bg-white-500 '>
+    <div  className=' bg-white-500 bg-[#010100] text-white '>
           {/* Movie Set Time out  */}
           <div className=''>
                 Set time out 
           </div>
           {/* Now Playing */}
 
-          <TrendingMovies/>
+         <div>
+         <TrendingMovies/>
+          <Upcoming/>
+          <ComedyMovies/>
+          <TopRated/>
+          <ActionMovies/>
+         </div>
+
+         <div className='text-xl text-white'>
+          sdfas
+         </div>
           
 
 
