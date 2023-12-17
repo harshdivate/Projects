@@ -13,6 +13,16 @@
     
 }
 
+.movie-main-div{
+    transition: transform .2s;
+}
+
+.movie-main-div:hover{
+    transform: scale(1.2);
+    border-radius: 20px;
+
+}
+
 /* .slick-slide  div{
     width:fit-content;
     justify-items: center;
