@@ -10,7 +10,7 @@ function LoginForm() {
     const navigate = useNavigate();
     const {register,handleSubmit,formState :{errors}} = useForm();
     const {handleLogin} = usehandleLogin();
-    const {addUser,removeUser,isUserLoggedIn} = useContext(userContext)
+    const {addUser,removeUser,isUserLoggedIn,addUserLoginDetails} = useContext(userContext)
 
     // useEffect(()=>{
     //   removeUser();
@@ -27,9 +27,10 @@ function LoginForm() {
       try {
         const loginObject =await handleLogin(email,password);
         if (loginObject) {
-          console.log(loginObject);
-          console.log("Successfully Logged In");
+          // console.log(typeof loginObject)
+          // console.log("Successfully Logged In");
           addUser();
+          addUserLoginDetails(loginObject.$id)
           // localStorage.setItem("isLoggedIn",true);
           navigate("/");
         }

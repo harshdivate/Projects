@@ -6,6 +6,7 @@ const usehandleLogin = () => {
   const handleLogin = async (email, password) => {
     try {
       const loginObject = await account.createEmailSession(email, password);
+      await console.log(account.listIdentities());
       if (loginObject) {
         console.log(loginObject);
         return loginObject;

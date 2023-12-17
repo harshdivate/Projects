@@ -6,11 +6,10 @@ import userContext from '../../context/userContext'
 
 function Navigation() {
   const navigate = useNavigate();
-  const {isUserLoggedIn,removeUser,isLoggedIn} = useContext(userContext); 
-  console.log('User is Logged in ?'+isUserLoggedIn())
+  const {isUserLoggedIn,removeUser} = useContext(userContext); 
+  
   const handleLogout = () => {
-    if(isLoggedIn){
-      console.log('Now i should delete the localStorage '+isLoggedIn)
+    if(isUserLoggedIn()){
       removeUser();
       navigate('/')
     }else{
@@ -27,18 +26,20 @@ function Navigation() {
                 <div className='mx-4'>&lt;Code/&gt;</div>
             </div>
             {/* For Nav Links */}
-            <div className='w-1/2  flex justify-around '>
+            {isUserLoggedIn() ? (<div className='w-1/2  flex justify-around '>
+              {/* User is Logged In */}
                 <NavLink>Home</NavLink>
-                <NavLink>Products</NavLink>
-                <NavLink
-                to = "/register"
-                >SignUp</NavLink>
-                <NavLink
-                
-                ><button
-                onClick={handleLogout}
-                >{isLoggedIn===true ? "Logout" : "Log In"}</button></NavLink>
-            </div>
+                <NavLink>Favourite</NavLink>     
+                <NavLink><button onClick={handleLogout}>Logout</button></NavLink>
+                <NavLink>Account</NavLink>
+            </div>):(<div className='w-1/2 flex justify-around'>
+                <NavLink className='disabled'>Home</NavLink>
+                <NavLink to = "/register">SignUp</NavLink>
+                <NavLink to="/login">Login</NavLink>
+
+                     
+            </div>)}
+            
         </nav>
     </div>
   )
