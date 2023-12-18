@@ -27,10 +27,9 @@ function LoginForm() {
       try {
         const loginObject =await handleLogin(email,password);
         if (loginObject) {
-          // console.log(typeof loginObject)
-          // console.log("Successfully Logged In");
+          
           addUser();
-          addUserLoginDetails(loginObject.$id)
+          addUserLoginDetails(loginObject.$id,loginObject.userId)
           // localStorage.setItem("isLoggedIn",true);
           navigate("/");
         }

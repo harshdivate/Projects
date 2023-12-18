@@ -21,14 +21,16 @@ const UserContextProvider = ({ children }) => {
     return localStorage.getItem('isLoggedIn') || false;
   };
 
-  const addUserLoginDetails=async(id)=>{
-      const details = await getSessionDetails(id);
-      console.log("Details are")
-      console.log(details)
+  const addUserLoginDetails = (sessionId,userId) => {
+    localStorage.setItem('userDetails',JSON.stringify({'sessionId':sessionId,'userId':userId}));
+  }
+
+  const getUserLoginDetails = () => {
+    return JSON.parse(localStorage.getItem('userDetails')) || false;
   }
 
   return (
-    <userContext.Provider value={{ addUser, removeUser, isUserLoggedIn ,isLoggedIn,addUserLoginDetails}}>
+    <userContext.Provider value={{ addUser, removeUser, isUserLoggedIn ,isLoggedIn,addUserLoginDetails,getUserLoginDetails}}>
       {children}
     </userContext.Provider>
   );

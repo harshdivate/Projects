@@ -28,10 +28,10 @@ function Navigation() {
             {/* For Nav Links */}
             {isUserLoggedIn() ? (<div className='w-1/2  flex justify-around '>
               {/* User is Logged In */}
-                <NavLink>Home</NavLink>
+                <NavLink to="/">Home</NavLink>
                 <NavLink>Favourite</NavLink>     
                 <NavLink><button onClick={handleLogout}>Logout</button></NavLink>
-                <NavLink>Account</NavLink>
+                <NavLink to="/accountDetails">Account</NavLink>
             </div>):(<div className='w-1/2 flex justify-around'>
                 <NavLink className='disabled'>Home</NavLink>
                 <NavLink to = "/register">SignUp</NavLink>
