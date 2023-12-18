@@ -42,7 +42,11 @@ bower_components
 build/Release
 
 # Dependency directories
+<<<<<<< HEAD
 ./node_modules/
+=======
+node_modules/
+>>>>>>> 3b4f6e6 (fix gitignore)
 jspm_packages/
 
 # Snowpack dependency directory (https://snowpack.dev/)
@@ -85,7 +89,10 @@ web_modules/
 .next
 out
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3b4f6e6 (fix gitignore)
 # Nuxt.js build / generate output
 .nuxt
 dist
