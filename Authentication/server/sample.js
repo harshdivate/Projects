@@ -1,16 +1,19 @@
-// import sdk from "node-appwrite";
+import sdk from "node-appwrite";
+import dotenv from "dotenv";
 
-// async function getUserDetails() {
-//   const client = new sdk.Client();
+dotenv.config();
 
-//   const users = new sdk.Users(client);
+async function getUserDetails() {
+  const client = new sdk.Client();
 
-//   client
-//     .setEndpoint("https://cloud.appwrite.io/v1") // Your API Endpoint
-//     .setProject(process.env.PROJECT_ID) // Your project ID
-//     .setKey(process.env.API_SECRETKEY); // Your secret API key
-//   const data = await users.get(process.env.USER_ID);
-//   console.log(data);
-// }
+  const users = new sdk.Users(client);
 
-// getUserDetails();
+  client
+    .setEndpoint("https://cloud.appwrite.io/v1") // Your API Endpoint
+    .setProject(process.env.PROJECT_ID) // Your project ID
+    .setKey(process.env.SECRET_API_KEY); // Your secret API key
+  const data = await users.get(process.env.SAMPLE_USERID);
+  console.log(data);
+}
+
+getUserDetails();
