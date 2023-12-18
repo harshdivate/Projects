@@ -1,4 +1,5 @@
-const sdk = require("node-appwrite");
+import sdk from "node-appwrite";
+
 function configureAppwrite() {
   const client = new sdk.Client();
 
