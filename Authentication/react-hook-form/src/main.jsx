@@ -8,6 +8,7 @@ import LoginForm from './components/LoginForm/LoginForm.jsx'
 import Protected from './components/ProtectedRoutes/Protected.jsx'
 import RegisterForm from './components/RegisterForm/RegisterForm.jsx'
 import AccountDetails from './components/AccountDetails/AccountDetails.jsx'
+import MovieDetails from './components/MovieDetails/MovieDetails.jsx'
 
 
 
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/login" element={<LoginForm/>}></Route>
       <Route path="/register" element={<RegisterForm/>}></Route>
       <Route path="/accountDetails" element={<AccountDetails/>}></Route>
+      <Route path="movieDetails/:id" element={<MovieDetails/>}></Route>
       </Route>  
    </Routes>
    </BrowserRouter>

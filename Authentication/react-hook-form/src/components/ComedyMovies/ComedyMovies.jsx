@@ -4,10 +4,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { settings  } from '../../config/sliderSetting';
 import Slider from "react-slick";
-
+import { Link, useNavigate } from 'react-router-dom';
 function ComedyMovies() {
     const [data,setData] = useState([]);
     const [baseImgUrl,setbaseImgUrl] = useState('https://image.tmdb.org/t/p/w300')
+    const navigate = useNavigate();
  
 
     useEffect(()=>{
@@ -19,6 +20,11 @@ function ComedyMovies() {
         fetchData();
     },[])
 
+    const handleNavigate = (id) => {
+        console.log(id)
+        // navigate(`/movieDetails/${id}`)
+    }
+
   return (
     <div className='m-10'>
         <div className='text-4xl'>Comedy &gt;</div>
@@ -27,7 +33,9 @@ function ComedyMovies() {
                 <Slider{...settings}>
 
                 {data.map((m)=>(
-                    <div key={m.id} className='movie-main-div '>
+                    <Link key={m.id} to={`/movieDetails/${m.id}`}>
+                    <div key={m.id} 
+                    className='movie-main-div '>
                 
                     <div className='  flex justify-center items-center '>
                         <img src={baseImgUrl+m.poster_path} className='rounded-lg hover:rounded-xl' /> 
@@ -38,6 +46,7 @@ function ComedyMovies() {
                         <small className='text-xs'>{m.vote_average}</small>
                     </div>
                 </div>
+                </Link>
 
                 ))}
                 </Slider>
