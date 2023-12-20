@@ -22,7 +22,7 @@ function Navigation() {
         <nav className='flex m-3  w-full items-center justify-between  text-xl text-white'>
             {/* For Image and Heading */}
             <div className='flex font-bold text-3xl items-center '>
-                <img className='img' src="code.svg"></img>
+                <img id='img' src="code.svg"></img>
                 <div className='mx-4'>&lt;Code/&gt;</div>
             </div>
             {/* For Nav Links */}
