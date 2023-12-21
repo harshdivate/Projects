@@ -7,12 +7,11 @@ function Layout() {
   
   return (
     
-    
       <UserContextProvider>
         <Navigation/>
         <Outlet/>
       </UserContextProvider>  
-      
+    
     
   )
 }

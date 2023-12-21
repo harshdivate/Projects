@@ -1,3 +1,101 @@
-.container{
-    background-color: #010100;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+#image-container{
+    display: inline-block;
+    position: relative;
+    /* border:solid;
+    border-color:white; */
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    margin: 10px;
+}
+
+#image-container-img{
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: 35%;
+}
+
+#overlay-text{
+    position: absolute;
+    top: 10%; 
+    left: 0%; 
+    /* transform: translate(-50%, -50%);  */
+    background-color: transparent; 
+    color: #fff; 
+    padding: 10px 20px; 
+    font-size: 20px; 
+    
+    
+    display: flex-start;
+    flex-direction: column;
+    max-width: 50%;  
+}
+
+#poster-path {
+    margin:20px;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    display:inline-block;
+}
+
+#poster-path img{
+    display: block;
+    border-radius: 20px;
+}
+
+#hover-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size:20px;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease-in-out;
+    text-align: center;
+    color: #fff; /* Text color */
+    background-color: rgba(0, 0, 0, 0.7); /* Background color */
+    padding: 10px; /* Adjust as needed */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+#poster-path:hover  img:hover{
+    opacity: 40%;
+}
+#poster-path:hover #hover-text {
+    opacity: 1;
+  }
+
+
+#title{
+    font-size: 60px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+#watch-now{
+    padding: 2px;
+    border:none;
+    background-color: 	#E50914;
+    padding:10px 30px;
+    border-radius: 20px;
+}
+
+#star{
+    
+    height:40px ;
+}
+
+#original-language{
+    width: 3em;
+    background-color: #E50914;
+    font-weight: 800;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 12px;
+    padding: 6px;
+
+}
+
+#overlay-text > div {
+    margin:10px;
 }
