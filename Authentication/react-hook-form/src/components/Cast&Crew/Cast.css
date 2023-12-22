@@ -1,0 +1,7 @@
+#scroll-container{
+    max-height: 400px; /* Set your desired maximum height */
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    
+}
