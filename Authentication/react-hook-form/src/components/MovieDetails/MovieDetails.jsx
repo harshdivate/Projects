@@ -2,6 +2,8 @@ import React, { useState,useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import getMovieDetails from '../../utils/movie-db/getMovieDetails';
 import './MovieDetails.css'
+import MovieReccomandation from '../Movie-Reccomendation/MovieReccomandation';
+import Cast from '../Cast&Crew/Cast';
 
 
 
@@ -38,7 +40,6 @@ function MovieDetails() {
         const {getDetailsWithId} = getMovieDetails();
         const data =await  getDetailsWithId(id);
         setMovieDetails(data);
-        console.log(data)
         setImgUrl(`https://image.tmdb.org/t/p/w1280${data.backdrop_path}`)
     }
     fetchData();
@@ -83,6 +84,13 @@ function MovieDetails() {
                   </div>
             </div>
         </div>
+        <div>
+          <Cast movieId={id}/>
+        </div>
+        <div>
+            <MovieReccomandation movieId={id}/>
+        </div>
+        
     </div>
   )
 }
@@ -92,20 +100,3 @@ export default MovieDetails
 
 
 
-// style={{backgroundImage:`url(${imageURL})`,backgroundRepeat:'no-repeat'}}
-
-{/* <div className='h-2/3  border border-white flex' style={{height:'auto'}}  >
-            <div className='w-1/3 border border-red-600 '>
-                <div>
-                <img src={`https://image.tmdb.org/t/p/w400${movieDetails.poster_path}`} >
-                </img>
-                </div>
-            </div>
-            <div className='w-2/3 border border-purple-500'> 
-               
-                <div>
-                  <div></div>
-                </div>
-            </div>
-         
-        </div> */}
